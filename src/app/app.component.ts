@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { HobbiesComponent } from './sections/hobbies/hobbies.component';
+import { ProjectsComponent } from './sections/projects/projects.component';
 
 @Component({
-  selector: 'app-root',                    // 👈 IMPORTANTE: tiene que ser app-root
+  selector: 'app-root',
   standalone: true,
+  imports: [HobbiesComponent, ProjectsComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {}
