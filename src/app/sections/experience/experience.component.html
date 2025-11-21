@@ -1,0 +1,21 @@
+<section class="experience-section">
+  <h2>Experience</h2>
+
+  <!-- Columna derecha: tarjetas -->
+  <div class="experience-cards">
+    <div class="job-card" *ngFor="let j of jobs">
+      <img [src]="j.logo" class="job-logo" />
+
+      <div class="job-info">
+        <h3>{{ j.company }}</h3>
+        <h4>{{ j.role }}</h4>
+
+        <ul>
+          <li *ngFor="let p of j.points">{{ p }}</li>
+        </ul>
+      </div>
+
+      <div class="years-range">{{ j.yearsLabel }}</div>
+    </div>
+  </div>
+</section>
