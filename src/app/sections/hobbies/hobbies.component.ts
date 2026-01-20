@@ -12,25 +12,25 @@ import { NgClass } from '@angular/common';
 export class HobbiesComponent {
   hobbies = [
     {
-      title: 'AI',
+      title: 'Machine Learning',
       icon: 'fa-brain',
-      image: 'assets/hobbies/ai.jpg',
+      image: 'assets/hobbies/machinelearning.jpg',
       description:
-        'Exploring machine learning applications, from LLMs to image generation and model training.',
+        'Exploring machine learning applications, I am currently studing mathematics for machine learning.',
     },
     {
-      title: '3D Printing',
-      icon: 'fa-cubes',
-      image: 'assets/hobbies/3d.jpg',
+      title: 'Baseball',
+      icon: 'fa-baseball-bat-ball',
+      image: 'assets/hobbies/baseball.webp',
       description:
-        'Designing and printing models since 2012, specializing in engineering and sci-fi themed builds.',
+        'Playing and following baseball. I play at the amateur level in Buenos Aires.',
     },
     {
       title: 'Coding',
       icon: 'fa-code',
-      image: 'assets/hobbies/github.jpg',
+      image: 'assets/hobbies/coding.png',
       description:
-        'Building new ideas, tinkering with technologies, and contributing to open-source.',
+        'Building new ideas, explring backend technologies, trying to contribute to open-source projects.',
     },
   ];
 }
