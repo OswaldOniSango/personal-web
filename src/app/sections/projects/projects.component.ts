@@ -11,22 +11,16 @@ import { NgFor } from '@angular/common';
 export class ProjectsComponent {
   projects = [
     {
-      name: 'Fuel Reconciliation Engine',
-      image: 'assets/projects/p1.jpg',
+      name: 'Invenco fuel managment',
+      image: 'assets/projects/invenco.jpg',
       tech: 'Java · Snowflake · Python · AWS',
       link: 'https://github.com/TU_USUARIO',
     },
     {
-      name: 'Sales Smoothing Algorithm',
-      image: 'assets/projects/p2.jpg',
-      tech: 'Java · BigDecimal · Machine Learning',
+      name: 'DLMS - Lenovo',
+      image: 'assets/projects/lenovo.png',
+      tech: 'Java · Spring boot· PostgreSQL',
       link: 'https://github.com/TU_USUARIO',
-    },
-    {
-      name: 'Portfolio Website',
-      image: 'assets/projects/p3.jpg',
-      tech: 'Angular · SCSS · Web Animations',
-      link: '#',
-    },
+    }
   ];
 }
