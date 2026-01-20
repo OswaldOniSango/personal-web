@@ -70,3 +70,14 @@
   white-space: nowrap;
 
 }
+
+.job-logo {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+  object-fit: contain;
+  border-radius: 50%;     // o transparente
+  padding: 8px;          // opcional
+  display: block;
+}
+

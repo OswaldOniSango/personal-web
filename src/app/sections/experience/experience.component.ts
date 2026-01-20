@@ -16,7 +16,7 @@ export class ExperienceComponent {
       company: 'Arizmendi',
       role: 'Junior Programmer',
       yearsLabel: 'Nov 2021 - Dec 2022',
-      logo: 'assets/experience/arizmendi.png',
+      logo: 'assets/arismendi-logo.jpeg',
       location: 'Argentina',
       points: [
         'Human Resources software development (Web App).',
@@ -29,7 +29,7 @@ export class ExperienceComponent {
       company: 'Avalith',
       role: 'Java Software Developer',
       yearsLabel: 'Dec 2022 - Jul 2023',
-      logo: 'assets/experience/avalith.png',
+      logo: 'assets/avalith.webp',
       location: 'Argentina · Remote',
       points: [
         'Worked for an important client in the banking industry.',
@@ -42,7 +42,7 @@ export class ExperienceComponent {
       company: 'Ketos Delphin',
       role: 'Java Developer',
       yearsLabel: 'Jun 2022 - Present',
-      logo: 'assets/experience/ketos.png',
+      logo: 'assets/ketos-logo.jpg',
       location: 'Argentina · Remote',
       points: [
         'Backend development using Java with Spring framework to create RESTful APIs for a Human Resources system using microservices.',
@@ -56,7 +56,7 @@ export class ExperienceComponent {
       company: 'Svitla Systems, Inc.',
       role: 'Software & Data Engineer',
       yearsLabel: 'Jul 2023 - Present',
-      logo: 'assets/experience/svitla.png',
+      logo: 'assets/svitla.svg',
       location: 'Remote',
       points: [
         'Working on Insite360, a leading Java-based solution for fuel station management.',
