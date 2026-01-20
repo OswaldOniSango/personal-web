@@ -1,0 +1,14 @@
+<section class="projects-section">
+  <h2>Projects</h2>
+
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let p of projects">
+      <img [src]="p.image" />
+
+      <h3>{{ p.name }}</h3>
+      <p class="tech">{{ p.tech }}</p>
+
+      <!--<a [href]="p.link" target="_blank" class="button">View</a>-->
+    </div>
+  </div>
+</section>
