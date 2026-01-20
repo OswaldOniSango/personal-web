@@ -30,7 +30,7 @@ export class HobbiesComponent {
       icon: 'fa-code',
       image: 'assets/hobbies/coding.png',
       description:
-        'Building new ideas, explring backend technologies, trying to contribute to open-source projects.',
+        'Building new ideas, explring backend technologies, contributing to open-source projects.',
     },
   ];
 }
