@@ -59,7 +59,7 @@ export class ExperienceComponent {
       logo: 'assets/svitla.svg',
       location: 'Remote',
       points: [
-        'Working on Insite360, a leading Java-based solution for fuel station management.',
+        'Working on Invenco, a leading Java-based solution for fuel station management.',
         'Designing and managing end-to-end ELT pipelines on Snowflake using streams, stored procedures, views, and UDFs.',
         'Improved operational workflows ensuring efficient, scalable, and reliable reconciliation processes.',
         'Leading the migration from Jenkins to GitHub Actions for CI/CD automation and S3 deployments.',
