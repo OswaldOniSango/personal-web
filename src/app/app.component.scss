@@ -24,11 +24,6 @@
   align-items: center;
 }
 
-.logo {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
 .social-icons {
   display: flex;
   gap: 0.75rem;
@@ -144,4 +139,15 @@ i {
   list-style-position: inside; 
 }
 
+.cv-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+  }
+}
 
