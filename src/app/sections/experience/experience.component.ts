@@ -18,6 +18,7 @@ export class ExperienceComponent {
       yearsLabel: 'Nov 2021 - Dec 2022',
       logo: 'assets/arismendi-logo.jpeg',
       location: 'Argentina',
+      web: 'https://arizmendi.ar/',
       points: [
         'Human Resources software development (Web App).',
         'Designed and maintained SQL databases (MySQL).',
@@ -31,6 +32,7 @@ export class ExperienceComponent {
       yearsLabel: 'Dec 2022 - Jul 2023',
       logo: 'assets/avalith.webp',
       location: 'Argentina · Remote',
+      web: 'https://www.avalith.net/',
       points: [
         'Worked for an important client in the banking industry.',
         'Developed a Spring-based microservice integrating GetGuru Cloud with IBM Watson Discovery.',
@@ -44,6 +46,7 @@ export class ExperienceComponent {
       yearsLabel: 'Jun 2022 - Present',
       logo: 'assets/ketos-logo.jpg',
       location: 'Argentina · Remote',
+      web: 'https://ketos-delphin.com/',
       points: [
         'Backend development using Java with Spring framework to create RESTful APIs for a Human Resources system using microservices.',
         'Working with an important client from China.',
@@ -58,6 +61,7 @@ export class ExperienceComponent {
       yearsLabel: 'Jul 2023 - Present',
       logo: 'assets/svitla.svg',
       location: 'Remote',
+      web: 'https://svitla.com/',
       points: [
         'Working on Invenco, a leading Java-based solution for fuel station management.',
         'Designing and managing end-to-end ELT pipelines on Snowflake using streams, stored procedures, views, and UDFs.',
