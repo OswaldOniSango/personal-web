@@ -11,6 +11,12 @@ import { NgFor } from '@angular/common';
 export class ProjectsComponent {
   projects = [
     {
+      name: 'Comunicaciones Baseball',
+      image: 'assets/projects/comunicaciones-baseball-home.png',
+      tech: 'Next.js · Supabase · PostgreSQL',
+      link: 'https://comu-page.vercel.app/es',
+    },
+    {
       name: 'Invenco fuel managment',
       image: 'assets/projects/invenco.jpg',
       tech: 'Java · Snowflake · Python · AWS',
@@ -21,6 +27,6 @@ export class ProjectsComponent {
       image: 'assets/projects/lenovo.png',
       tech: 'Java · Spring boot· PostgreSQL',
       link: 'https://github.com/TU_USUARIO',
-    }
+    },
   ];
 }
