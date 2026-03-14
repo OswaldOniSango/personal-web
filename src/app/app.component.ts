@@ -1,8 +1,12 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  HostListener,
+  DestroyRef,
+  ElementRef,
+  NgZone,
+  ViewChild,
   afterNextRender,
+  inject,
 } from '@angular/core';
 import { HobbiesComponent } from './sections/hobbies/hobbies.component';
 import { ProjectsComponent } from './sections/projects/projects.component';
@@ -17,31 +21,72 @@ import { ExperienceComponent } from "./sections/experience/experience.component"
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  earthTransform = 'translate3d(0px, 0px, 0) rotate(0deg) scale(1)';
-  earthMapOffset = '0px';
-  earthCloudOffset = '0px';
+  @ViewChild('spacePage') private spacePage?: ElementRef<HTMLElement>;
+
+  private readonly ngZone = inject(NgZone);
+  private readonly destroyRef = inject(DestroyRef);
+  private animationFrameId: number | null = null;
 
   constructor() {
-    afterNextRender(() => this.updateEarthMotion(window.scrollY || 0));
+    afterNextRender(() => {
+      this.syncEarthMotion();
+
+      this.ngZone.runOutsideAngular(() => {
+        const onViewportChange = () => this.requestEarthMotionSync();
+
+        window.addEventListener('scroll', onViewportChange, { passive: true });
+        window.addEventListener('resize', onViewportChange, { passive: true });
+
+        this.destroyRef.onDestroy(() => {
+          window.removeEventListener('scroll', onViewportChange);
+          window.removeEventListener('resize', onViewportChange);
+
+          if (this.animationFrameId !== null) {
+            cancelAnimationFrame(this.animationFrameId);
+          }
+        });
+      });
+    });
   }
 
-  @HostListener('window:scroll')
-  onWindowScroll(): void {
-    this.updateEarthMotion(window.scrollY || 0);
+  private requestEarthMotionSync(): void {
+    if (this.animationFrameId !== null) {
+      return;
+    }
+
+    this.animationFrameId = requestAnimationFrame(() => {
+      this.animationFrameId = null;
+      this.syncEarthMotion();
+    });
   }
 
-  private updateEarthMotion(scrollY: number): void {
-    const clampedScroll = Math.max(0, Math.min(scrollY, 2200));
-    const rotation = clampedScroll * 0.085;
-    const offsetY = Math.min(clampedScroll * 0.18, 240);
-    const offsetX = Math.sin(clampedScroll / 260) * 24;
-    const scale = 1 + Math.min(clampedScroll / 5000, 0.08);
-    const mapOffset = -(clampedScroll * 0.32);
-    const cloudOffset = -(clampedScroll * 0.4);
+  private syncEarthMotion(): void {
+    const root = this.spacePage?.nativeElement;
 
-    this.earthTransform =
-      `translate3d(${offsetX}px, ${offsetY}px, 0) rotate(${rotation}deg) scale(${scale})`;
-    this.earthMapOffset = `${mapOffset}px`;
-    this.earthCloudOffset = `${cloudOffset}px`;
+    if (!root) {
+      return;
+    }
+
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    const scrollableHeight = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1,
+    );
+    const progress = Math.min(Math.max(scrollY / scrollableHeight, 0), 1);
+    const isMobile = window.innerWidth <= 720;
+
+    const rotation = progress * 280;
+    const offsetY = progress * (isMobile ? 180 : 320);
+    const offsetX = Math.sin(progress * Math.PI * 3) * (isMobile ? 12 : 24);
+    const scale = 1 + progress * 0.08;
+    const mapOffset = progress * -1400;
+    const cloudOffset = progress * -1760;
+
+    root.style.setProperty('--earth-rotation', `${rotation}deg`);
+    root.style.setProperty('--earth-offset-y', `${offsetY}px`);
+    root.style.setProperty('--earth-offset-x', `${offsetX}px`);
+    root.style.setProperty('--earth-scale', `${scale}`);
+    root.style.setProperty('--earth-map-offset', `${mapOffset}px`);
+    root.style.setProperty('--earth-cloud-offset', `${cloudOffset}px`);
   }
 }
