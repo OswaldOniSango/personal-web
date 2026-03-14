@@ -30,6 +30,12 @@ app-root {
 }
 
 app-root .space-page {
+  --earth-rotation: 0deg;
+  --earth-offset-x: 0px;
+  --earth-offset-y: 0px;
+  --earth-scale: 1;
+  --earth-map-offset: 0px;
+  --earth-cloud-offset: 0px;
   position: relative;
   min-height: 100vh;
   isolation: isolate;
@@ -107,8 +113,11 @@ app-root .earth-system {
   right: -16vw;
   width: min(46rem, 58vw);
   aspect-ratio: 1;
+  transform:
+    translate3d(var(--earth-offset-x), var(--earth-offset-y), 0)
+    rotate(var(--earth-rotation))
+    scale(var(--earth-scale));
   transform-origin: 50% 50%;
-  transition: transform 120ms linear;
   will-change: transform;
 }
 
@@ -151,6 +160,7 @@ app-root .earth-map {
   background-size: auto 100%;
   filter: saturate(1.1) contrast(1.06) brightness(0.9);
   transform: scale(1.07);
+  will-change: background-position;
 }
 
 app-root .earth-clouds {
@@ -163,6 +173,7 @@ app-root .earth-clouds {
   mix-blend-mode: screen;
   filter: blur(0.6px) brightness(1.1);
   transform: scale(1.1);
+  will-change: background-position;
 }
 
 app-root .earth-shadow {
@@ -421,6 +432,23 @@ app-root app-experience {
     width: min(32rem, 105vw);
     opacity: 0.58;
   }
+
+  app-root .earth-halo {
+    filter: blur(12px);
+  }
+
+  app-root .earth-disc {
+    box-shadow:
+      0 0 0 10px rgba(97, 181, 255, 0.04),
+      0 0 48px rgba(0, 99, 203, 0.18),
+      inset -42px -42px 88px rgba(0, 0, 0, 0.72),
+      inset 12px 12px 24px rgba(255, 255, 255, 0.08);
+  }
+
+  app-root .aurora {
+    filter: blur(56px);
+    opacity: 0.22;
+  }
 }
 
 @media (max-width: 520px) {
@@ -451,5 +479,17 @@ app-root app-experience {
     top: 24vh;
     right: -52vw;
     width: min(28rem, 124vw);
+  }
+
+  app-root .stars-layer-2 {
+    display: none;
+  }
+
+  app-root .social-icons a {
+    backdrop-filter: none;
+  }
+
+  app-root .planet-card {
+    backdrop-filter: blur(8px);
   }
 }
