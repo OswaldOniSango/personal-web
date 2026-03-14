@@ -1,15 +1,11 @@
-<div class="space-page">
+<div class="space-page" #spacePage>
   <div class="space-backdrop" aria-hidden="true">
     <div class="stars-layer stars-layer-1"></div>
     <div class="stars-layer stars-layer-2"></div>
     <div class="aurora aurora-left"></div>
     <div class="aurora aurora-bottom"></div>
 
-    <div
-      class="earth-system"
-      [style.transform]="earthTransform"
-      [style.--earth-map-offset]="earthMapOffset"
-      [style.--earth-cloud-offset]="earthCloudOffset">
+    <div class="earth-system">
       <div class="earth-halo"></div>
       <div class="earth-disc">
         <div class="earth-map"></div>
