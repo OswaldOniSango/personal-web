@@ -1,22 +1,32 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
-import { NgClass } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+
+interface Hobby {
+  title: string;
+  icon: string;
+  image: string;
+  description: string;
+  link?: string;
+  linkLabel?: string;
+}
 
 @Component({
   selector: 'app-hobbies',
   standalone: true,
-  imports: [NgFor, NgClass],
+  imports: [NgFor, NgClass, NgIf],
   templateUrl: './hobbies.component.html',
   styleUrl: './hobbies.component.scss',
 })
 export class HobbiesComponent {
-  hobbies = [
+  hobbies: Hobby[] = [
     {
       title: 'Machine Learning',
       icon: 'fa-brain',
       image: 'assets/hobbies/machinelearning.jpg',
       description:
-        'Exploring machine learning applications, I am currently studing mathematics for machine learning.',
+        'Exploring machine learning applications and building interactive experiments like my neural network visualizer.',
+      link: 'https://oswaldonisango.github.io/Neural-network/neural-network-visualizer.html',
+      linkLabel: 'Open visualizer',
     },
     {
       title: 'Baseball',

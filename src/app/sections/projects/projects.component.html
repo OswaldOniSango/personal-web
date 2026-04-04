@@ -8,7 +8,7 @@
       <h3>{{ p.name }}</h3>
       <p class="tech">{{ p.tech }}</p>
 
-      <a [href]="p.link" target="_blank" rel="noopener noreferrer" class="button">View</a>
+      <a *ngIf="p.link" [href]="p.link" target="_blank" rel="noopener noreferrer" class="button">View</a>
     </div>
   </div>
 </section>

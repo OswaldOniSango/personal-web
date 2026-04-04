@@ -23,6 +23,8 @@
   backdrop-filter: blur(10px);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -50,4 +52,21 @@
 .card-text {
   color: #ccc;
   line-height: 1.6;
+}
+
+.card-link {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00bfff, #0077ff);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 119, 255, 0.25);
 }
