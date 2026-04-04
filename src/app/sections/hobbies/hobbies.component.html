@@ -11,6 +11,15 @@
       </h3>
 
       <p class="card-text">{{ h.description }}</p>
+
+      <a
+        *ngIf="h.link"
+        [href]="h.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-link">
+        {{ h.linkLabel }}
+      </a>
     </div>
   </div>
 </section>
