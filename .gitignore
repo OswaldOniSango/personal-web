@@ -28,6 +28,14 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Local AI / agent tooling
+.claude/
+.codex/
+.agents/
+.cursor/
+.windsurf/
+.roo/
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/
