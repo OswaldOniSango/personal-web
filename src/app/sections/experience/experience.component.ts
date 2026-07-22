@@ -48,10 +48,12 @@ export class ExperienceComponent {
       location: 'Argentina · Remote',
       web: 'https://ketos-delphin.com/',
       points: [
-        'Backend development using Java with Spring framework to create RESTful APIs for a Human Resources system using microservices.',
-        'Working with an important client from China.',
-        'Building software using Jira, GitLab, PostgreSQL, Redis, Postman, Vue.js, JavaScript, and more.',
-        'Contributed to multiple backend and integration processes.'
+        'Develop backend services for a microservices-based enterprise platform covering Human Resources, Time & Attendance, and Payroll.',
+        'Design and implement RESTful APIs with Java, Spring Boot, PostgreSQL, and Redis supporting HR, attendance, and workforce management.',
+        'Build integrations with external systems through REST APIs, processing employee clock-in/clock-out events, payroll interfaces, CSV generation, and secure FTP file transfers.',
+        'Develop and maintain scheduled background jobs using an in-house job framework with cron scheduling and multithreading for large-scale business processing.',
+        'Troubleshoot production issues by analyzing logs, complex SQL queries, and database records while implementing backend enhancements and production data fixes.',
+        'Collaborate with frontend, product, and QA teams using Jira, GitLab, and Postman.'
       ]
     },
 
@@ -63,12 +65,12 @@ export class ExperienceComponent {
       location: 'Remote',
       web: 'https://svitla.com/',
       points: [
-        'Working on Invenco, a leading Java-based solution for fuel station management.',
-        'Designing and managing end-to-end ELT pipelines on Snowflake using streams, stored procedures, views, and UDFs.',
-        'Improved operational workflows ensuring efficient, scalable, and reliable reconciliation processes.',
-        'Leading the migration from Jenkins to GitHub Actions for CI/CD automation and S3 deployments.',
-        'Actively working on integration testing using Cypress.',
-        'Contributing to a new initiative involving Kafka pipelines, Go microservices, and delivering processed data to an Angular-based frontend.'
+        'Design, orchestrate, and manage end-to-end ELT pipelines in Snowflake using Streams, Tasks, Stored Procedures, Views, and UDFs integrated with Java services.',
+        'Develop reusable Java frameworks that integrate with Snowflake UDFs, enabling standardized data processing services across multiple projects.',
+        'Deliver automated reconciliation, exception-handling, and real-time data processing workflows for operational reporting.',
+        'Led the migration from Jenkins to GitHub Actions for Snowflake deployments, including Flyway migrations, stored procedure releases, and JAR publishing to Snowflake stages.',
+        'Developed an automated end-to-end testing framework using Java and JDBC that validates Snowflake stored procedures and data pipelines through SQL execution, significantly reducing manual testing efforts.',
+        'Contribute to Kafka → MongoDB streaming pipelines, Java/Go microservices, and Angular-based data delivery.'
       ]
     }  
   ];
