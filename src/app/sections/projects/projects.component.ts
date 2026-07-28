@@ -18,6 +18,12 @@ interface Project {
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      name: 'Plan financiero',
+      image: 'assets/projects/plan-financiero-home.png',
+      tech: 'React · Vite · Springboot · PostgreSQL',
+      link: 'https://finanzas-frontend-lemon.vercel.app/',
+    },
+    {
       name: 'Comunicaciones Baseball',
       image: 'assets/projects/comunicaciones-baseball-home.png',
       tech: 'Next.js · Supabase · PostgreSQL',
