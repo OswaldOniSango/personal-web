@@ -18,9 +18,15 @@ interface Project {
 export class ProjectsComponent {
   projects: Project[] = [
     {
+      name: 'Punto de Apoyo',
+      image: 'assets/projects/punto-de-apoyo-home.png',
+      tech: 'React · Vite · Java · Spring Boot · Spring Security · Spring Data · PostgreSQL',
+      link: 'https://puntodeapoyo.org/',
+    },
+    {
       name: 'Plan financiero',
       image: 'assets/projects/plan-financiero-home.png',
-      tech: 'React · Vite · Springboot · PostgreSQL',
+      tech: 'React · Vite · Java · Spring Boot · PostgreSQL',
       link: 'https://finanzas-frontend-lemon.vercel.app/',
     },
     {
