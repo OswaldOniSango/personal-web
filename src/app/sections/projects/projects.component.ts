@@ -5,7 +5,11 @@ interface Project {
   name: string;
   image: string;
   tech: string;
+  description?: string;
   link?: string;
+  linkLabel?: string;
+  dockerCommands?: string[];
+  featured?: boolean;
 }
 
 @Component({
@@ -17,6 +21,24 @@ interface Project {
 })
 export class ProjectsComponent {
   projects: Project[] = [
+    {
+      name: 'Mallard - Snowflake Emulator',
+      image: 'assets/projects/mallard-snowflake-emulator.png',
+      tech: 'Go · DuckDB · TypeScript · Vite · Docker · Snowflake SQL API',
+      description:
+        'An open-source local Snowflake emulator for learning, experimentation, integration testing, and CI workflows without requiring a paid Snowflake account.',
+      link: 'https://github.com/OswaldOniSango/snowflake-emulator',
+      linkLabel: 'View repository',
+      dockerCommands: [
+        'docker pull ghcr.io/oswaldonisango/snowflake-emulator:latest',
+        `docker run --rm \\
+  --name snowflake-emulator \\
+  -p 8080:8080 \\
+  -v snowflake-data:/data \\
+  ghcr.io/oswaldonisango/snowflake-emulator:latest`,
+      ],
+      featured: true,
+    },
     {
       name: 'Punto de Apoyo',
       image: 'assets/projects/punto-de-apoyo-home.png',

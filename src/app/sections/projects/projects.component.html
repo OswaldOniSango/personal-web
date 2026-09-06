@@ -2,13 +2,27 @@
   <h2>Projects</h2>
 
   <div class="projects-grid">
-    <div class="project-card" *ngFor="let p of projects">
-      <img [src]="p.image" />
+    <article
+      class="project-card"
+      [class.project-card--featured]="p.featured"
+      *ngFor="let p of projects">
+      <img [src]="p.image" [alt]="p.name + ' preview'" />
 
-      <h3>{{ p.name }}</h3>
-      <p class="tech">{{ p.tech }}</p>
+      <div class="project-content">
+        <span class="featured-label" *ngIf="p.featured">Featured project</span>
+        <h3>{{ p.name }}</h3>
+        <p class="project-description" *ngIf="p.description">{{ p.description }}</p>
+        <p class="tech">{{ p.tech }}</p>
 
-      <a *ngIf="p.link" [href]="p.link" target="_blank" rel="noopener noreferrer" class="button">View</a>
-    </div>
+        <div class="docker-setup" *ngIf="p.dockerCommands?.length">
+          <span>Run locally with Docker</span>
+          <pre *ngFor="let command of p.dockerCommands"><code>{{ command }}</code></pre>
+        </div>
+
+        <a *ngIf="p.link" [href]="p.link" target="_blank" rel="noopener noreferrer" class="button">
+          {{ p.linkLabel || 'View' }}
+        </a>
+      </div>
+    </article>
   </div>
 </section>
