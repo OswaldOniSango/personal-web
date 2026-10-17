@@ -1,4 +1,4 @@
-<div class="space-page" #spacePage>
+<div class="space-page" #spacePage [attr.data-theme]="theme()">
   <div class="space-backdrop" aria-hidden="true">
     <div class="stars-layer stars-layer-1"></div>
     <div class="stars-layer stars-layer-2"></div>
@@ -32,26 +32,38 @@
           Visit My space
         </a>
       </div>
+      <div class="header-actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          (click)="toggleTheme()"
+          [attr.aria-label]="theme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
+          <i
+            class="fa-solid"
+            [class.fa-sun]="theme() === 'dark'"
+            [class.fa-moon]="theme() === 'light'"
+            aria-hidden="true"></i>
+          <span>{{ theme() === 'dark' ? 'Light' : 'Dark' }}</span>
+        </button>
 
+        <nav class="social-icons" aria-label="Social links">
+          <a href="https://x.com/OswaldOniShango" target="_blank" rel="noopener noreferrer" aria-label="X profile">
+            <i class="fab fa-x-twitter"></i>
+          </a>
 
-      <nav class="social-icons">
-        <a href="https://x.com/OswaldOniShango" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-x-twitter"></i>
-        </a>
+          <a href="https://github.com/OswaldOniSango" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <i class="fab fa-github"></i>
+          </a>
 
-        <a href="https://github.com/OswaldOniSango" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i>
-        </a>
+          <a href="https://www.linkedin.com/in/oswaldohernandez1104/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <i class="fab fa-linkedin"></i>
+          </a>
 
-        <a href="https://www.linkedin.com/in/oswaldohernandez1104/" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-linkedin"></i>
-        </a>
-
-        <a href="https://www.instagram.com/oswaldonisango/" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-instagram"></i>
-        </a>
-
-      </nav>
+          <a href="https://www.instagram.com/oswaldonisango/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </nav>
+      </div>
     </header>
 
     <main class="hero">

@@ -19,6 +19,23 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+body,
+app-root,
+app-root .space-backdrop,
+app-root .planet-card,
+app-root .top-link-button,
+app-root .theme-toggle,
+app-root .social-icons a,
+app-root app-hobbies .card,
+app-root app-projects .project-card,
+app-root app-experience .job-card {
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
 app-root {
   display: block;
   min-height: 100vh;
@@ -205,6 +222,45 @@ app-root .top-links {
   flex-wrap: wrap;
 }
 
+app-root .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+app-root .theme-toggle {
+  display: inline-flex;
+  min-width: 92px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 0.85rem;
+  border: 1px solid rgba(129, 191, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+app-root .theme-toggle:hover {
+  border-color: rgba(129, 191, 255, 0.44);
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+app-root .theme-toggle:focus-visible,
+app-root .top-link-button:focus-visible,
+app-root .social-icons a:focus-visible {
+  outline: 3px solid #6ec8ff;
+  outline-offset: 3px;
+}
+
 app-root .top-link-button {
   display: inline-flex;
   align-items: center;
@@ -382,7 +438,7 @@ app-root app-projects .project-content {
   height: 100%;
 }
 
-app-root app-projects .project-card--featured {
+app-root app-projects .projects-grid .project-card.project-card--featured {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
@@ -391,11 +447,14 @@ app-root app-projects .project-card--featured {
   background: linear-gradient(135deg, rgba(12, 38, 36, 0.94), rgba(15, 20, 38, 0.92));
 }
 
-app-root app-projects .project-card--featured img {
-  height: 100%;
-  min-height: 390px;
+app-root app-projects .projects-grid .project-card.project-card--featured img {
+  height: auto;
+  min-height: 0;
+  flex-shrink: 0;
+  align-self: center;
   margin-bottom: 0;
-  object-position: left top;
+  object-fit: contain;
+  object-position: center;
 }
 
 app-root app-projects .featured-label {
@@ -444,6 +503,114 @@ app-root app-projects .docker-setup pre {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   user-select: all;
+}
+
+html[data-theme='light'],
+html[data-theme='light'] body {
+  background: #edf5ff;
+  color: #10213d;
+}
+
+html[data-theme='light'] app-root {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(52, 124, 225, 0.2), transparent 22%),
+    radial-gradient(circle at 82% 28%, rgba(37, 184, 207, 0.14), transparent 25%),
+    linear-gradient(180deg, #dcecff 0%, #f8fbff 42%, #eaf2fb 100%);
+  color: #10213d;
+}
+
+html[data-theme='light'] app-root .space-backdrop {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(42, 108, 224, 0.17), transparent 20%),
+    radial-gradient(circle at 84% 62%, rgba(24, 166, 194, 0.14), transparent 28%),
+    linear-gradient(180deg, #dbeaff 0%, #f9fcff 48%, #edf4fc 100%);
+}
+
+html[data-theme='light'] app-root .stars-layer {
+  opacity: 0.11;
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+html[data-theme='light'] app-root .aurora {
+  opacity: 0.18;
+}
+
+html[data-theme='light'] app-root .top-link-button,
+html[data-theme='light'] app-root .theme-toggle,
+html[data-theme='light'] app-root .social-icons a {
+  border-color: rgba(31, 83, 153, 0.18);
+  background: rgba(255, 255, 255, 0.66);
+  color: #12305c;
+  box-shadow: 0 8px 24px rgba(37, 83, 140, 0.1);
+}
+
+html[data-theme='light'] app-root .top-link-button:hover,
+html[data-theme='light'] app-root .theme-toggle:hover,
+html[data-theme='light'] app-root .social-icons a:hover {
+  border-color: rgba(31, 83, 153, 0.32);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+html[data-theme='light'] app-root .planet-card {
+  border-color: rgba(40, 94, 160, 0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(239, 247, 255, 0.66));
+  box-shadow:
+    0 24px 70px rgba(37, 83, 140, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme='light'] app-root .role,
+html[data-theme='light'] app-root .description,
+html[data-theme='light'] app-root .description-list {
+  color: #314968;
+}
+
+html[data-theme='light'] app-root app-hobbies .hobbies-section h2,
+html[data-theme='light'] app-root app-projects .projects-section h2,
+html[data-theme='light'] app-root app-experience .experience-section h2 {
+  color: #10213d;
+}
+
+html[data-theme='light'] app-root app-hobbies .card,
+html[data-theme='light'] app-root app-projects .project-card,
+html[data-theme='light'] app-root app-experience .job-card {
+  border: 1px solid rgba(40, 94, 160, 0.14);
+  background: rgba(255, 255, 255, 0.8);
+  color: #253c5b;
+  box-shadow: 0 16px 40px rgba(37, 83, 140, 0.14);
+}
+
+html[data-theme='light'] app-root app-hobbies .card-title,
+html[data-theme='light'] app-root app-hobbies .card-text,
+html[data-theme='light'] app-root app-projects .project-card,
+html[data-theme='light'] app-root app-projects .project-card h3,
+html[data-theme='light'] app-root app-projects .tech,
+html[data-theme='light'] app-root app-experience .job-info,
+html[data-theme='light'] app-root app-experience .job-info h3,
+html[data-theme='light'] app-root app-experience .job-info h4,
+html[data-theme='light'] app-root app-experience .job-info li,
+html[data-theme='light'] app-root app-experience .years {
+  color: #253c5b;
+}
+
+html[data-theme='light'] app-root app-projects .projects-grid .project-card.project-card--featured {
+  border-color: rgba(19, 137, 113, 0.28);
+  background: linear-gradient(135deg, rgba(225, 249, 242, 0.92), rgba(239, 246, 255, 0.94));
+}
+
+html[data-theme='light'] app-root app-projects .featured-label,
+html[data-theme='light'] app-root app-projects .docker-setup > span {
+  color: #08745f;
+}
+
+html[data-theme='light'] app-root app-projects .project-description {
+  color: #31534d;
+}
+
+html[data-theme='light'] app-root app-projects .docker-setup pre {
+  border-color: rgba(19, 137, 113, 0.24);
+  background: #102620;
+  color: #e6fff8;
 }
 
 @keyframes star-drift-1 {
@@ -499,13 +666,11 @@ app-root app-projects .docker-setup pre {
 }
 
 @media (max-width: 820px) {
-  app-root app-projects .project-card--featured {
+  app-root app-projects .projects-grid .project-card.project-card--featured {
     display: flex;
   }
 
-  app-root app-projects .project-card--featured img {
-    height: 230px;
-    min-height: 0;
+  app-root app-projects .projects-grid .project-card.project-card--featured img {
     margin-bottom: 1.2rem;
   }
 }
@@ -518,6 +683,11 @@ app-root app-projects .docker-setup pre {
 
   app-root .top-links {
     justify-content: center;
+  }
+
+  app-root .header-actions {
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   app-root .top-link-button {
@@ -590,6 +760,10 @@ app-root app-projects .docker-setup pre {
   }
 
   app-root .social-icons a {
+    backdrop-filter: none;
+  }
+
+  app-root .theme-toggle {
     backdrop-filter: none;
   }
 
