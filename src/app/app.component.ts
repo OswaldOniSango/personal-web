@@ -7,10 +7,15 @@ import {
   ViewChild,
   afterNextRender,
   inject,
+  signal,
 } from '@angular/core';
 import { HobbiesComponent } from './sections/hobbies/hobbies.component';
 import { ProjectsComponent } from './sections/projects/projects.component';
 import { ExperienceComponent } from "./sections/experience/experience.component";
+
+type Theme = 'dark' | 'light';
+
+const THEME_STORAGE_KEY = 'personal-web-theme';
 
 @Component({
   selector: 'app-root',
@@ -23,12 +28,15 @@ import { ExperienceComponent } from "./sections/experience/experience.component"
 export class AppComponent {
   @ViewChild('spacePage') private spacePage?: ElementRef<HTMLElement>;
 
+  readonly theme = signal<Theme>('dark');
+
   private readonly ngZone = inject(NgZone);
   private readonly destroyRef = inject(DestroyRef);
   private animationFrameId: number | null = null;
 
   constructor() {
     afterNextRender(() => {
+      this.restoreTheme();
       this.syncEarthMotion();
 
       this.ngZone.runOutsideAngular(() => {
@@ -47,6 +55,36 @@ export class AppComponent {
         });
       });
     });
+  }
+
+  toggleTheme(): void {
+    const nextTheme: Theme = this.theme() === 'dark' ? 'light' : 'dark';
+
+    this.applyTheme(nextTheme);
+
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch {
+      // The theme still works when browser storage is unavailable.
+    }
+  }
+
+  private restoreTheme(): void {
+    let savedTheme: string | null = null;
+
+    try {
+      savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+    } catch {
+      // Keep the existing dark theme when browser storage is unavailable.
+    }
+
+    this.applyTheme(savedTheme === 'light' ? 'light' : 'dark');
+  }
+
+  private applyTheme(theme: Theme): void {
+    this.theme.set(theme);
+    document.documentElement.dataset['theme'] = theme;
+    document.documentElement.style.colorScheme = theme;
   }
 
   private requestEarthMotionSync(): void {
